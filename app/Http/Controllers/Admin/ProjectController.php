@@ -17,6 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
+
         $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
     }
@@ -80,10 +81,10 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('message', 'Hai eliminato con successo ');
     }
 }
