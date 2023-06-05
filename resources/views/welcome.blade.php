@@ -10,8 +10,8 @@
             </h1>
 
             <p class="col-md-8 fs-4"></p>
-            <a href="{{ route('login') }}" class="btn btn-primary btn-lg" type="button">Vai al login</a>
-            <a href="{{ route('register') }}" class="btn btn-primary btn-lg" type="button">Registrati</a>
+            <a href="{{ route('login') }}" class="btn btn-outline-primary" type="button">Vai al login</a>
+            <a href="{{ route('register') }}" class="btn btn-outline-primary" type="button">Registrati</a>
         </div>
     </div>
 
