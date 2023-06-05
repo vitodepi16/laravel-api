@@ -16,9 +16,10 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{ route('admin.projects.index') }}">Vai alla index</a>
+
                         {{ __('Ti sei loggato con successo!') }}
                     </div>
+                    <a href="{{ route('admin.projects.index') }}">Vai alla index</a>
                 </div>
             </div>
         </div>

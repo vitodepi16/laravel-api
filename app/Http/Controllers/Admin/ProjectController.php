@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use App\Http\Controllers\Controller;
+
 
 class ProjectController extends Controller
 {
@@ -24,9 +26,10 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        //
+
+        return view('admin.projects.create');
     }
 
     /**
@@ -37,29 +40,27 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
      */
     public function show(Project $project)
     {
-        return view('admin.project.show', compact('project'));
+
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**

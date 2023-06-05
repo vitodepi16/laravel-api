@@ -5,6 +5,7 @@
     <div class="text-end">
         <a class="btn btn-success" href="{{ route('admin.projects.create') }}">Crea nuovo post</a>
     </div>
+
     @if (session()->has('message'))
         <div class="alert alert-success">
             {{ session()->get('message') }}
@@ -29,9 +30,11 @@
                             alt="{{ $project->title }}">
                     </td>
                     <td>{{ $project->created_at }}</td>
-                    <td><a href="{{ route('admin.posts.show', $project->slug) }}"><i class="fa-solid fa-eye"></i></a>
-                        <a href="{{ route('admin.posts.edit', $project->slug) }}"><i class="fa-solid fa-pencil"></i></a>
-                        <form action="{{ route('admin.posts.destroy', $project->slug) }}" method="POST">
+                    <td><a href="{{ route('admin.projects.show', $project->slug) }}"><i class="fa-solid fa-eye"></i></a>
+
+
+                        <a href="{{ route('admin.projects.edit', $project->slug) }}"><i class="fa-solid fa-pencil"></i></a>
+                        <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type='submit' class="delete-button" data-item-title="{{ $project->title }}"> <i
