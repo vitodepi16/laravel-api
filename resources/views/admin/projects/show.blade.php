@@ -18,19 +18,21 @@
                             <h2>{{ $project->title }}</h2>
                             <p>{{ $project->description }}</p>
                         </div>
+                        <div class="d-grid gap-2  d-flex">
+                            <a href="{{ route('admin.projects.edit', $project->slug) }}"><i
+                                    class="fa-solid fa-pencil"></i></a>
+                            <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type='submit' class="delete-button btn" data-item-title="{{ $project->title }}"> <i
+                                        class="fa-solid  fa-trash"></i></button>
+                            </form>
+                        </div>
 
                     </div>
 
                 </div>
-                <div class="d-grid gap-2 d-md-block">
 
-                    {{-- <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-danger delete-button">Elimina il
-                            progetto</button>
-                    </form> --}}
-                </div>
 
             </div>
         </div>

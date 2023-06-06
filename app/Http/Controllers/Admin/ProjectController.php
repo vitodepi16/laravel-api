@@ -72,11 +72,14 @@ class ProjectController extends Controller
      *
      * @param  \App\Http\Requests\UpdateProjectRequest  $request
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $data = $request->validated();
+        $slug = Str::slug($request->title, '-');
+        $data['slug'] = $slug;
+        $project->update($data);
+        return redirect()->route('admin.projects.show', $project->slug)->with('message', 'Il post è stato modificato con successo!');
     }
 
     /**
