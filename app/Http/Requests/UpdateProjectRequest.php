@@ -13,7 +13,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,23 @@ class UpdateProjectRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
+
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'unique:projects max:150|min:3'],
+            'image' => 'nullable|max:255',
+            'description' => 'nullable'
+
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.unique:projects' => 'Questo titolo è gia in uso',
+            'title.max' => 'Il titolo deve essere lungo massimo :max caratteri',
+            'title.min' => 'Il titolo deve essere lungo almeno :min caratteri'
         ];
     }
 }

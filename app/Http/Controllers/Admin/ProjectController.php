@@ -6,7 +6,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -38,6 +38,11 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        $data = $request->validated();
+        $slug = Str::slug($data['title'], '-');
+        $data['slug'] = $slug;
+        $project = Project::create($data);
+        return redirect()->route('admin.projects.show', $project->slug);
     }
 
     /**
