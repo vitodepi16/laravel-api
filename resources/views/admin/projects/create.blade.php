@@ -36,6 +36,13 @@
                 {{ $message }}
             @enderror
         </div>
+        <select class="form-select" name="type_id" id="type_id" aria-label="Default select example">
+            <option selected>Seleziona tecnologia</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->id }}">{{ $type->name }}</option>
+            @endforeach
+
+        </select>
         <button type="submit" class="btn btn-success">Save</button>
         <button type="reset" class="btn btn-primary">Reset</button>
     </form>

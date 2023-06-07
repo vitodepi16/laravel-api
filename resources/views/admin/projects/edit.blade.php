@@ -27,15 +27,14 @@
                     <div class="alert alert-danger mt-2">{{ $message }}</div>
                 @enderror
             </div>
-            {{-- <div class="mb-3">
-                <label for="title" class="form-label ">Descrizione</label>
-                <input type="text" class="form-control @error('descrption') is-invalid @enderror" name="title"
-                    id="title" aria-describedby="titleHelp" value="{{ $project->description }}">
-                <div id="titleHelp" class="form-text">Modifica la descrizione del proggetto</div>
-                @error('descrption')
-                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                @enderror
-            </div> --}}
+            <select class="form-select" name="type_id" id="type_id">
+                <option selected>Seleziona tecnologia</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id == old('type_id', $project->type_id) ? 'selected' : '' }}">
+                        {{ $type->name }}</option>
+                @endforeach
+
+            </select>
 
 
             <button type="submit" class="btn btn-primary">Submit</button>
