@@ -1,6 +1,6 @@
 <?php
 return [
-    "technologies" => [
+    "types" => [
         [
             "name" => "HTML",
             "image" => "html-logo.png",

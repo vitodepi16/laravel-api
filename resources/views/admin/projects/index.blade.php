@@ -24,7 +24,7 @@
         <tbody>
             @foreach ($projects as $project)
                 <tr>
-                    <th scope="row">{{ $project->id }}</th>
+                    <th scope="row">{{ $project->type->name }}</th>
                     <td>{{ $project->title }}</td>
                     <td><img class="img-thumbnail" style="width:100px" src="{{ $project->image }}"
                             alt="{{ $project->title }}">

@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('types', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->text('image')->nullable();
-            $table->text('description')->nullable();
-            $table->timestamps();
+        Schema::table('projects', function (Blueprint $table) {
+            $table->unsignedBigInteger('types_id')->nullable();
+            $table->foreign('types_id')->references('id')->on('types');
         });
     }
 
@@ -30,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('types');
+        Schema::table('projects', function (Blueprint $table) {
+            $table->dropForeign('project_types_id_foreign');
+            $table->dropColumn('types_id');
+        });
     }
 };
