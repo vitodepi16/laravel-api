@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-white">Modifica il tuo progetto</h1>
+        <h1 class="text-white mt-3">Modifica il tuo progetto</h1>
         <form action="{{ route('admin.projects.update', $project->slug) }}" method="POST">
             @csrf
             @method('PUT')
@@ -40,7 +40,7 @@
             </select>
 
             <div class="p-3 d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="submit" class="btn btn-outline-primary ms-0  m-3">Submit</button>
+                <button type="submit" class="btn btn-outline-success ms-0  m-3">Submit</button>
                 <button type="reset" class="btn btn-outline-primary m-3">Reset</button>
             </div>
 
