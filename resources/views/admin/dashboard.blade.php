@@ -7,8 +7,8 @@
         </h2>
         <div class="row justify-content-center">
             <div class="col">
-                <div class="card">
-                    <div class="card-header">{{ __('User Dashboard') }}</div>
+                <div class="card p-3">
+                    <div class="card-header">{{ __('Benvenuto!') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -19,7 +19,12 @@
 
                         {{ __('Ti sei loggato con successo!') }}
                     </div>
-                    <a href="{{ route('admin.projects.index') }}">Vai alla index</a>
+                    <div class="d-flex ">
+                        <a class="btn btn-outline-success mx-auto" href="{{ route('admin.projects.index') }}">Vai ai tuoi
+                            progetti</a>
+
+                    </div>
+
                 </div>
             </div>
         </div>
