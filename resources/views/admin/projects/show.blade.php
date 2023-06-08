@@ -19,7 +19,14 @@
                                     src="/image/{{ $project->type->image }}" style="width: 100px"
                                     alt="{{ $project->type->name }}"></p>
                             <p class="card-text">{{ $project->body }}</p>
-
+                            @if ($project->tags && count($project->tags) > 0)
+                                <div>
+                                    @foreach ($project->tags as $tag)
+                                        <p class="badge mt-2 rounded-pill text-bg-success">{{ $tag->name }}
+                                        </p>
+                                    @endforeach
+                                </div>
+                            @endif
                             <form action="{{ route('admin.projects.destroy', $project->slug) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
@@ -29,6 +36,7 @@
                                 <a type='submit' class="delete-button btn btn-outline-danger"
                                     data-item-title="{{ $project->title }}"> <i class="fa-solid  fa-trash"></i></a>
                             </form>
+
                         </div>
                     </div>
                 </div>

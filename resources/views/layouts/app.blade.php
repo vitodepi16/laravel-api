@@ -89,10 +89,11 @@
             </div>
         </nav>
 
-        <main class="">
-            @yield('content')
-        </main>
+
     </div>
 </header>
+<main class="">
+    @yield('content')
+</main>
 
 </html>

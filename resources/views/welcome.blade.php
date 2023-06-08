@@ -19,7 +19,7 @@
 
         <div class="content">
             <div class="container">
-                <p class="">Sono lieto di presentarvi la mia innovativa pagina per il caricamento dei portfolio,
+                <p class="text-white">Sono lieto di presentarvi la mia innovativa pagina per il caricamento dei portfolio,
                     un'esperienza
                     interattiva e intuitiva che mette in mostra il talento e la creatività di numerosi professionisti
                     provenienti da diverse discipline. La pagina è stata progettata con cura per offrire una piattaforma

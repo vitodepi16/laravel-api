@@ -37,7 +37,27 @@
                         {{ $type->name }}</option>
                 @endforeach
 
+
             </select>
+            <div class="form-group text-white">
+                <p>Seleziona i Tag:</p>
+                @foreach ($tags as $tag)
+                    <div>
+                        @if ($errors->any())
+                            <input type="checkbox" name="tags[]" value="{{ $tag->id }}"
+                                class="form-check-input text-white"
+                                {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
+                        @else
+                            <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input"
+                                {{ $project->tags->contains($tag) ? 'checked' : '' }}>
+                        @endif
+                        <label for="" class="form-check-label text-white">{{ $tag->name }}</label>
+                    </div>
+                @endforeach
+                @error('tags')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
 
             <div class="p-3 d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="submit" class="btn btn-outline-success ms-0  m-3">Submit</button>
@@ -45,5 +65,10 @@
             </div>
 
         </form>
+        <div class="d-grid gap-2 d-md-block">
+            <a class="btn btn-outline-primary btn-lg mx-auto mt-3" href="{{ route('admin.projects.index') }}">Torna ai
+                tuoi
+                progetti</a>
+        </div>
     </div>
 @endsection

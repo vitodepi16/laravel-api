@@ -46,6 +46,19 @@
                 @endforeach
 
             </select>
+            <div class="form-group">
+                <p class="text-white mt-3">Seleziona i Tag:</p>
+                @foreach ($tags as $tag)
+                    <div>
+                        <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-check-input"
+                            {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>
+                        <label for="" class="text-white form-check-label">{{ $tag->name }}</label>
+                    </div>
+                @endforeach
+                @error('tags')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
             <div class="mt-3 d-grid gap-2 d-md-block">
                 <button type="submit" class="btn btn-outline-success">Save</button>
                 <button type="reset" class="btn btn-outline-light">Reset</button>
