@@ -33,9 +33,13 @@
                     </div>
                 </div>
 
-            </div> <a class="btn btn-outline-primary btn-lg mx-auto" href="{{ route('admin.projects.index') }}">Torna ai
-                tuoi
-                progetti</a>
+            </div>
+            <div class="d-grid gap-2 d-md-block">
+                <a class="btn btn-outline-primary btn-lg mx-auto" href="{{ route('admin.projects.index') }}">Torna ai
+                    tuoi
+                    progetti</a>
+            </div>
+
         </div>
     </main>
 @endsection

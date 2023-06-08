@@ -39,7 +39,7 @@
 
             </select>
 
-            <div class="p-3">
+            <div class="p-3 d-grid gap-2 d-md-flex justify-content-md-end">
                 <button type="submit" class="btn btn-outline-primary ms-0  m-3">Submit</button>
                 <button type="reset" class="btn btn-outline-primary m-3">Reset</button>
             </div>

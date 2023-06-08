@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
+            {{ __('La tua dashboard') }}
         </h2>
         <div class="row justify-content-center">
             <div class="col">
@@ -19,7 +19,8 @@
 
                         {{ __('Ti sei loggato con successo!') }}
                     </div>
-                    <div class="d-flex ">
+                    <div class=" ">
+                        <p></p>
                         <a class="btn btn-outline-success mx-auto" href="{{ route('admin.projects.index') }}">Vai ai tuoi
                             progetti</a>
 
