@@ -10,6 +10,7 @@ use App\Models\Type;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Auth;
 
 
 class ProjectController extends Controller
@@ -20,7 +21,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-
+        $user = Auth::user();
+        if ($user->is_admin) {
+            $projects = Project::paginate(3);
+        } else {
+            $projects = Project::where('user_id', $user->id)->paginate(3);
+        }
         $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
     }
@@ -61,7 +67,9 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-
+        if (!Auth::user()->is_admin && $project->user_id !== Auth::id()) {
+            abort(403);
+        }
         return view('admin.projects.show', compact('project'));
     }
 
