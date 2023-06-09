@@ -45,7 +45,9 @@
                     </div>
                 </div>
             @endforeach
+
         </div>
+        {{ $projects->links('vendor.pagination.bootstrap-5') }}
     </div>
     @include('partials.modal-delete-modal')
 @endsection
