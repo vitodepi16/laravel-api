@@ -33,8 +33,8 @@
                                 <a class="btn btn-outline-warning"
                                     href="{{ route('admin.projects.edit', $project->slug) }}"><i
                                         class="fa-solid fa-pencil"></i></a>
-                                <a type='submit' class="delete-button btn btn-outline-danger"
-                                    data-item-title="{{ $project->title }}"> <i class="fa-solid  fa-trash"></i></a>
+                                <button type='submit' class="delete-button btn btn-outline-danger"
+                                    data-item-title="{{ $project->title }}"> <i class="fa-solid  fa-trash"></i></button>
                             </form>
 
                         </div>
@@ -50,4 +50,5 @@
 
         </div>
     </main>
+    @include('partials.modal-delete-modal')
 @endsection
