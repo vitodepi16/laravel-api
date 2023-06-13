@@ -10,15 +10,15 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $project = Project::with('type')->paginate(2);
+        $projects = Project::with('type', 'tags')->paginate(3);
         return response()->json([
             'success' => true,
-            'results' => $project
+            'results' => $projects
         ]);
     }
     public function show($slug)
     {
-        $project = Project::with('type')->where('slug', $slug)->first();
+        $project = Project::with('type', 'tags')->where('slug', $slug)->first();
         if ($project) {
             return response()->json([
                 'success' => true,

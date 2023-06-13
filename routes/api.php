@@ -17,5 +17,5 @@ use App\Http\Controllers\Api\ProductController;
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-Route::get('/project', [ProductController::class, 'index']);
+Route::get('/projects', [ProductController::class, 'index']);
 Route::get('/projects/{slug}', [ProductController::class, 'show']);
