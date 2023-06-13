@@ -18,4 +18,4 @@ use App\Http\Controllers\Api\ProductController;
 //     return $request->user();
 // });
 Route::get('/project', [ProductController::class, 'index']);
-Route::get('/projects/{slug}', [ProjectController::class, 'show']);
+Route::get('/projects/{slug}', [ProductController::class, 'show']);
