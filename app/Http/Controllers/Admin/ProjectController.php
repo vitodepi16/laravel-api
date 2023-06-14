@@ -25,7 +25,7 @@ class ProjectController extends Controller
         if ($user->is_admin) {
             $projects = Project::paginate(3);
         } else {
-            $projects = Project::where('user_id', $user->id)->paginate(3);
+            $projects = Project::where('user_id', $user->id)->paginate(4);
         }
         return view('admin.projects.index', compact('projects'));
     }
